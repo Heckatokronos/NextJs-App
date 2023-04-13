@@ -1,5 +1,5 @@
 import { MongoClient } from "mongodb";
-import { URL } from "../../api/api";
+import { URL } from "../../mongodb/api";
 
 async function handler(req, res) {
   if (req.method === "POST") {
@@ -11,6 +11,8 @@ async function handler(req, res) {
     const meetupsCollections = db.collection("meetups");
 
     const result = await meetupsCollections.insertOne(data);
+
+    console.log(result);
 
     client.close();
 

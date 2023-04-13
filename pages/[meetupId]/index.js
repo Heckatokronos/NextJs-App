@@ -1,5 +1,5 @@
 import { MongoClient, ObjectId } from "mongodb";
-import { URL } from "../../api/api";
+import { URL } from "../../mongodb/api";
 
 import MeetupDetail from "../../components/meetups/MeetupDetail";
 import Head from "next/head";
@@ -40,8 +40,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  // fetch data for a single meetup
-
   const meetupId = context.params.meetupId;
 
   const client = await MongoClient.connect(URL);

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { MongoClient } from "mongodb";
-import { URL } from "../api/api";
+import { URL } from "../mongodb/api";
 
 import MeetupList from "../components/meetups/MeetupList";
 
@@ -15,17 +15,6 @@ function MeetupHome(props) {
     </>
   );
 }
-
-// export async function getServerSideProps(context) {
-//   const req = context.req;
-//   const res = context.res;
-
-//   return {
-//     props: {
-//       meetups: DUMMY_MEETUPS,
-//     },
-//   };
-// }
 
 export async function getStaticProps() {
   const client = await MongoClient.connect(URL);
